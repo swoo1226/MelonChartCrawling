@@ -14,16 +14,12 @@ getHtml()
     .then(html => {
         let ulList = [];
         const $ = cheerio.load(html.data);
-        const $bodyList = $("tr.lst50").children("div.wrap_song_info");
-        console.log($bodyList);
-        $bodyList.each(function(i, elem) {
-            ulList[i] = {
-                title: $(this).find('div.ellipsis rank01').text(),
-                singer: $(this).find('div.ellipsis rank02').text()
-            };
-        });
-
-        const data = ulList.filter(n => n.title);
-        return data;
+        console.log($)
+        $('tr').each(function(key, val) {
+            let title = $(this).find('td div.wrap div.wrap_song_info div.ellipsis.rank01 span a').text()
+            let singer = $(this).find('td div.wrap div.wrap_song_info div.ellipsis.rank02 span a').text()
+            console.log(key, title + ': ' + singer)
+        })
+        return ulList;
     })
     .then(res => log(res));
