@@ -19,6 +19,7 @@ getHtml()
             let title = $(this).find('td div.wrap div.wrap_song_info div.ellipsis.rank01 span a').text()
             let singer = $(this).find('td div.wrap div.wrap_song_info div.ellipsis.rank02 span a').text()
             console.log(key, title + ': ' + singer)
+            ulList[key] = {순위 : key + 1, title, singer};
         })
         return ulList;
     })
