@@ -27,8 +27,10 @@ getHtml()
         $('tr').each(function(key, val) {
             let title = $(this).find('td div.wrap div.wrap_song_info div.ellipsis.rank01 span a').text()
             let singer = $(this).find('td div.wrap div.wrap_song_info div.ellipsis.rank02 span a').text()
-            console.log(key, title + ': ' + singer)
-            ulList[key] = {순위 : key, title, singer};
+            let image = `<img src=${$(this).find('td div.wrap a.image_typeAll').find('img').attr('src')}>`
+            console.log(image)
+            // console.log(key, title + ': ' + singer)
+            ulList[key] = {순위 : key, title, singer, image};
         })
         return ulList;
     })
